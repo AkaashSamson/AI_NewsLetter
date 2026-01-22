@@ -28,10 +28,23 @@ class YouTubePipeline:
         channel_url = source.get("url")
         last_checked = source.get("last_checked")
 
+        # Get rate limiting config
+        max_videos = self.config.get("rate_limiting", {}).get("max_videos_per_run", 10)
+
         try:
             channel_id = self.channel_resolver.get_channel_id(channel_url)
-            # Use 24-hour window instead of last_checked to avoid stale dates from CSV
-            videos = self.video_finder.find_new_videos(channel_id, hours=24)
+            # Use configured lookback hours
+            lookback_hours = self.config.get("pipeline", {}).get(
+                "video_lookback_hours", 24
+            )
+            videos = self.video_finder.find_new_videos(channel_id, hours=lookback_hours)
+
+            # Limit number of videos to process
+            if len(videos) > max_videos:
+                logger.warning(
+                    f"  ⚠ Found {len(videos)} videos, but limiting to {max_videos} to avoid rate limits"
+                )
+                videos = videos[:max_videos]
 
             for video in videos:
                 logger.info(f"Processing video: {video['title']}")

@@ -15,6 +15,13 @@ llm:
 pipeline:
   sources_file: "youtube_sources.csv"
   output_file: "daily_digest.json"
+  video_lookback_hours: 24  # How many hours back to check for new videos
+
+# Rate limiting to avoid YouTube blocking
+rate_limiting:
+  enabled: true
+  delay_between_requests: 2  # seconds between transcript requests
+  max_videos_per_run: 10     # safety limit to prevent too many requests
 
 email:
   recipient_email: "your-email@example.com"

@@ -8,8 +8,36 @@ import re
 import json
 import sys
 import logging
+import time
+from functools import wraps
 
 logger = logging.getLogger(__name__)
+
+# Rate limiting configuration
+RATE_LIMIT_DELAY = 2  # seconds between requests
+RATE_LIMIT_ENABLED = True
+
+
+def rate_limit(func):
+    """Decorator to add rate limiting to transcript fetches"""
+    last_call = {"time": 0}
+
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        if RATE_LIMIT_ENABLED:
+            elapsed = time.time() - last_call["time"]
+            if elapsed < RATE_LIMIT_DELAY:
+                sleep_time = RATE_LIMIT_DELAY - elapsed
+                logger.info(
+                    f"  Rate limiting: waiting {sleep_time:.1f}s before next request..."
+                )
+                time.sleep(sleep_time)
+            last_call["time"] = time.time()
+        return func(*args, **kwargs)
+
+    return wrapper
+
+
 try:
     from youtube_transcript_api import YouTubeTranscriptApi
 
@@ -46,6 +74,7 @@ class TranscriptFetcher:
                 "youtube-transcript-api not installed. Install with: pip install youtube-transcript-api"
             )
 
+    @rate_limit
     def fetch_transcript(self, video_id: str, languages: list = None) -> str | None:
         """
         Fetch transcript for a YouTube video.
@@ -173,7 +202,7 @@ class TranscriptFetcher:
 
 if __name__ == "__main__":
     """Quick manual test for fetching a transcript."""
-    video_id = "J8lxHyQmcaI"  # sample video id
+    video_id = "sPU6wVz2iE8"  # sample video id
     fetcher = TranscriptFetcher()
     transcript = fetcher.fetch_transcript(video_id)
     if transcript:
