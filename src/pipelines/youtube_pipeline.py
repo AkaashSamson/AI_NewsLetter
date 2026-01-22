@@ -1,6 +1,6 @@
 """
 YouTubePipeline Module
-Role: Orchestrates the complete YouTube content processing pipeline using Groq for summarization.
+Role: Orchestrates the complete YouTube content processing pipeline using LLMWriter for summarization.
 """
 
 from typing import List, Dict, Any
@@ -15,7 +15,8 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from models.source_tracker import SourceTracker
 from models.youtube_finder import YouTubeVideoFinder
 from models.transcript_fetcher import TranscriptFetcher
-from models.groq_news_writer import GroqNewsWriter
+from models.llm_writer import LLMWriter
+from models.yt_channel_resolver import YouTubeChannelResolver
 from utils.text_cleaner import TextCleaner
 from utils.json_builder import JSONBuilder
 
@@ -34,15 +35,19 @@ class YouTubePipeline:
         Initialize the YouTube pipeline.
 
         Args:
-            youtube_api_key: YouTube API key
+            youtube_api_key: (Unused now but kept for compatibility)
             groq_api_key: Groq API key for LLM
             sources_file: Path to sources CSV file
             groq_model: Groq model to use
         """
         self.source_tracker = SourceTracker(sources_file)
-        self.video_finder = YouTubeVideoFinder(api_key=youtube_api_key)
+        self.video_finder = YouTubeVideoFinder()  # RSS based, no API key needed
+        self.channel_resolver = YouTubeChannelResolver()
         self.transcript_fetcher = TranscriptFetcher()
-        self.llm_writer = GroqNewsWriter(model=groq_model, api_key=groq_api_key)
+        # Initialize LLMWriter with Groq provider
+        self.llm_writer = LLMWriter(
+            provider="groq", model=groq_model, api_key=groq_api_key
+        )
 
     def process_all_youtube_sources(self) -> Dict[str, Any]:
         """
@@ -53,7 +58,8 @@ class YouTubePipeline:
         """
         all_items = []
 
-        youtube_sources = self.source_tracker.get_active_sources("youtube")
+        # Get all sources (simple list)
+        youtube_sources = self.source_tracker.get_sources()
 
         for source in youtube_sources:
             print(f"\nProcessing: {source.get('name')}")
@@ -75,14 +81,23 @@ class YouTubePipeline:
         Returns:
             List of processed news items
         """
-        channel_id = source.get("url_or_id")
-        source_id = source.get("source_id")
+        source_id = source.get("id")
+        name = source.get("name")
+        channel_url = source.get("url")
         last_checked = source.get("last_checked")
 
         items = []
 
-        # Step 1: Find new videos
-        print(f"  Finding new videos...")
+        # Step 1: Resolve Channel ID from URL
+        print(f"  Resolving ID for {channel_url}...")
+        try:
+            channel_id = self.channel_resolver.get_channel_id(channel_url)
+        except Exception as e:
+            print(f"  Error resolving channel for {name}: {e}")
+            return items
+
+        # Step 2: Find new videos (filtering by last_checked happens inside finder)
+        print(f"  Finding new videos since {last_checked}...")
         videos = self.video_finder.find_new_videos(
             channel_id=channel_id, last_checked=last_checked
         )
@@ -93,7 +108,10 @@ class YouTubePipeline:
 
         print(f"  Found {len(videos)} new video(s)")
 
-        # Step 2-4: Process each video
+        # Track latest video timestamp found
+        max_published_at = last_checked
+
+        # Step 3: Process each video
         for video in videos:
             print(f"  Processing: {video['title'][:50]}...")
 
@@ -109,7 +127,7 @@ class YouTubePipeline:
             # Clean the text further
             clean_text = TextCleaner.clean_full(transcript_data["clean_text"])
 
-            # Summarize with Groq LLM
+            # Summarize with LLMWriter
             print(f"    Summarizing with Groq...")
             summary_result = self.llm_writer.process_content(
                 title=video["title"], text=clean_text
@@ -125,9 +143,14 @@ class YouTubePipeline:
 
             items.append(item)
 
-        # Update last_checked
-        self.source_tracker.update_last_checked(source_id)
-        print(f"  Updated last_checked for {source_id}")
+            # Update max date if this video is newer
+            if video["published_at"] > max_published_at:
+                max_published_at = video["published_at"]
+
+        # Update last_checked in CSV if we found a later date
+        if max_published_at > last_checked:
+            self.source_tracker.update_last_checked(source_id, max_published_at)
+            print(f"  Updated last_checked to {max_published_at}")
 
         return items
 
@@ -142,7 +165,7 @@ def main_youtube_pipeline(
     Run the complete YouTube pipeline.
 
     Args:
-        youtube_api_key: YouTube API key
+        youtube_api_key: YouTube API key (unused but kept for param compatibility)
         groq_api_key: Groq API key
         output_file: Output JSON file path
         groq_model: Groq model to use
