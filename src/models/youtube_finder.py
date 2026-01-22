@@ -7,9 +7,12 @@ Uses RSS feeds - no API key required.
 from datetime import datetime, timedelta, timezone
 from typing import List, Dict, Any
 import json
+import logging
 import requests
 import feedparser
 from email.utils import parsedate_to_datetime
+
+logger = logging.getLogger(__name__)
 
 
 class YouTubeVideoFinder:
@@ -21,7 +24,9 @@ class YouTubeVideoFinder:
 
     def __init__(self):
         """Initialize YouTubeVideoFinder."""
-        self.base_rss_url = "https://www.youtube.com/channel/{channel_id}/videos"
+        self.base_rss_url = (
+            "https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
+        )
 
     def find_new_videos(
         self, channel_id: str, hours: int = 24, last_checked: str = None
@@ -45,8 +50,13 @@ class YouTubeVideoFinder:
         # Determine cutoff time
         if last_checked:
             cutoff_time = datetime.fromisoformat(last_checked.replace("Z", "+00:00"))
+            logger.info(f"Using last_checked time: {cutoff_time}")
         else:
             cutoff_time = datetime.now(timezone.utc) - timedelta(hours=hours)
+            logger.info(f"Using relative time: {hours} hours ago = {cutoff_time}")
+
+        rss_url = self.base_rss_url.format(channel_id=channel_id)
+        logger.info(f"Fetching RSS feed from: {rss_url}")
 
         videos = []
 
@@ -63,6 +73,8 @@ class YouTubeVideoFinder:
 
             # Extract channel name from feed
             channel_name = feed.feed.get("title", "Unknown Channel")
+            logger.info(f"Channel: {channel_name}")
+            logger.info(f"Total entries in RSS feed: {len(feed.entries)}")
 
             # Process entries
             for entry in feed.entries:
@@ -85,6 +97,17 @@ class YouTubeVideoFinder:
                     except:
                         continue
 
+                video_title = entry.get("title", "Untitled")
+                is_new = published_at > cutoff_time
+
+                if is_new:
+                    logger.info(f"  ✓ New video found: '{video_title}'")
+                    logger.info(f"    Published: {published_at}")
+                else:
+                    logger.debug(
+                        f"  ✗ Old video (before cutoff): '{video_title}' | {published_at}"
+                    )
+
                 # Filter by cutoff time
                 if published_at > cutoff_time:
                     # Extract video ID from link
@@ -105,12 +128,17 @@ class YouTubeVideoFinder:
                         ),
                     }
                     videos.append(video_data)
+                    logger.info(f"    Video ID: {video_id}")
+
+            logger.info(f"\\n{'─'*60}")
+            logger.info(f"SUMMARY: Found {len(videos)} new video(s) after cutoff time")
+            logger.info(f"{'─'*60}")
 
         except requests.RequestException as e:
-            print(f"Error fetching RSS feed for channel {channel_id}: {e}")
+            logger.error(f"Error fetching RSS feed for channel {channel_id}: {e}")
             return []
         except Exception as e:
-            print(f"Error parsing RSS feed for channel {channel_id}: {e}")
+            logger.error(f"Error parsing RSS feed for channel {channel_id}: {e}")
             return []
 
         return videos

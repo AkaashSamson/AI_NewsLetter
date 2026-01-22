@@ -1,0 +1,408 @@
+2026-01-22 16:49:05 | INFO     | root:setup_logging:75 | ================================================================================
+2026-01-22 16:49:05 | INFO     | root:setup_logging:76 | Logging initialized | Level: INFO | File: logs\pipeline_20260122.log
+2026-01-22 16:49:05 | INFO     | root:setup_logging:77 | ================================================================================
+2026-01-22 16:49:05 | INFO     | __main__:<module>:103 | Initializing YouTube Pipeline...
+2026-01-22 16:49:05 | INFO     | src.models.source_tracker:load_sources:31 | Loaded 1 source(s) from youtube_sources.csv
+2026-01-22 16:49:06 | INFO     | __main__:run:67 | 
+================================================================================
+2026-01-22 16:49:06 | INFO     | __main__:run:68 | YOUTUBE PIPELINE STARTED
+2026-01-22 16:49:06 | INFO     | __main__:run:69 | ================================================================================
+2026-01-22 16:49:06 | INFO     | __main__:run:73 | 
+Total sources to process: 1
+2026-01-22 16:49:06 | INFO     | __main__:run:76 | 
+################################################################################
+2026-01-22 16:49:06 | INFO     | __main__:run:77 | SOURCE 1/1: LinusTechTips
+2026-01-22 16:49:06 | INFO     | __main__:run:78 | ################################################################################
+2026-01-22 16:49:06 | INFO     | src.models.yt_channel_resolver:get_channel_id:20 | Resolving channel ID for: https://www.youtube.com/@LinusTechTips
+2026-01-22 16:49:09 | INFO     | src.models.youtube_finder:find_new_videos:53 | Using last_checked time: 2026-01-01 00:00:00+00:00
+2026-01-22 16:49:09 | INFO     | src.models.youtube_finder:find_new_videos:59 | Fetching RSS feed from: https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:76 | Channel: Linus Tech Tips
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:77 | Total entries in RSS feed: 15
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:104 |   ✓ New video found: 'I Bought the Tech House and it Has a PROBLEM…'
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:105 |     Published: 2026-01-21 18:05:10+00:00
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:131 |     Video ID: sPU6wVz2iE8
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:104 |   ✓ New video found: 'LG's NEWEST SoundSuite Lineup is nuts'
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:105 |     Published: 2026-01-20 22:33:03+00:00
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:131 |     Video ID: KeLmi62DmjU
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:104 |   ✓ New video found: 'Don’t Wait for the Steam Controller 2!'
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:105 |     Published: 2026-01-19 18:09:29+00:00
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:131 |     Video ID: eNb55ZwnCRc
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:104 |   ✓ New video found: 'I’m Done Being Mad about Tech'
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:105 |     Published: 2026-01-17 17:23:47+00:00
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:131 |     Video ID: wZZf6LM3wAU
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:104 |   ✓ New video found: 'My TV Demo Failed - WAN Show January 16, 2026'
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:105 |     Published: 2026-01-16 23:03:37+00:00
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:131 |     Video ID: wcI-lqMwNSY
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:104 |   ✓ New video found: 'The TRUTH about How LTT SPENDS Money'
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:105 |     Published: 2026-01-15 18:30:09+00:00
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:131 |     Video ID: omCWNO7Jbnw
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:104 |   ✓ New video found: 'I’m Looking for the WORST Setup on the Internet…'
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:105 |     Published: 2026-01-14 18:18:20+00:00
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:131 |     Video ID: qklfd81ceeY
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:104 |   ✓ New video found: 'I Joined Robot Fight Club'
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:105 |     Published: 2026-01-12 18:43:55+00:00
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:131 |     Video ID: VJqMPFNP4to
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:104 |   ✓ New video found: 'The most powerful compact PC'
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:105 |     Published: 2026-01-12 01:23:02+00:00
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:131 |     Video ID: -nTm_xZY3o4
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:104 |   ✓ New video found: 'CES was frickin weird, guys'
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:105 |     Published: 2026-01-10 21:29:47+00:00
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:131 |     Video ID: Px117so_Mww
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:104 |   ✓ New video found: 'This Country Gave YouTube The Smack Down - WAN Show January 9, 2026'
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:105 |     Published: 2026-01-10 04:55:47+00:00
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:131 |     Video ID: QFtCeGjKOxU
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:104 |   ✓ New video found: 'Robot Battery Bank?'
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:105 |     Published: 2026-01-09 18:48:00+00:00
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:131 |     Video ID: Mo-0nz6Mlig
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:104 |   ✓ New video found: 'He Restored an Old Apple Mouse'
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:105 |     Published: 2026-01-08 16:42:04+00:00
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:131 |     Video ID: iBt1TLBFTRs
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:104 |   ✓ New video found: 'NVIDIA DLSS 4.5 Explained in 69 seconds'
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:105 |     Published: 2026-01-07 20:14:03+00:00
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:131 |     Video ID: pdM3d0DRY8U
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:104 |   ✓ New video found: 'Intel’s Best Product in YEARS - Panther Lake Announcement'
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:105 |     Published: 2026-01-07 18:11:10+00:00
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:131 |     Video ID: bG68OBQ3x9Y
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:133 | \n────────────────────────────────────────────────────────────
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:134 | SUMMARY: Found 15 new video(s) after cutoff time
+2026-01-22 16:49:10 | INFO     | src.models.youtube_finder:find_new_videos:135 | ────────────────────────────────────────────────────────────
+2026-01-22 16:49:10 | INFO     | __main__:process_single_channel:38 | Processing video: I Bought the Tech House and it Has a PROBLEM…
+2026-01-22 16:49:10 | INFO     | src.models.transcript_fetcher:fetch_and_clean:154 |   Fetching transcript for video ID: sPU6wVz2iE8
+2026-01-22 16:49:10 | INFO     | src.models.transcript_fetcher:fetch_transcript:66 | Fetching transcript for video: sPU6wVz2iE8 (languages: ['en'])
+2026-01-22 16:49:13 | INFO     | src.models.transcript_fetcher:fetch_transcript:77 | Transcript fetched successfully (18125 characters)
+2026-01-22 16:49:13 | INFO     | src.models.transcript_fetcher:fetch_and_clean:161 |   Raw transcript: 18125 characters
+2026-01-22 16:49:13 | INFO     | src.models.transcript_fetcher:fetch_and_clean:163 |   ✓ Cleaned transcript: 18125 characters
+2026-01-22 16:49:13 | INFO     | __main__:process_single_channel:43 | Transcript fetched, generating summary...
+2026-01-22 16:49:13 | INFO     | src.models.llm_writer:generate_summary:34 |   Calling Groq API...
+2026-01-22 16:49:13 | INFO     | src.models.llm_writer:generate_summary:35 |     Model: llama-3.3-70b-versatile
+2026-01-22 16:49:13 | INFO     | src.models.llm_writer:generate_summary:36 |     Temperature: 0.7
+2026-01-22 16:49:13 | INFO     | src.models.llm_writer:generate_summary:37 |     Max tokens: 1024
+2026-01-22 16:49:13 | INFO     | src.models.llm_writer:generate_summary:38 |     Input length: 18125 chars
+2026-01-22 16:49:16 | INFO     | httpx:_send_single_request:1025 | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 16:49:16 | INFO     | src.models.llm_writer:generate_summary:48 |   ✓ Summary generated: 880 chars
+2026-01-22 16:49:16 | INFO     | src.models.llm_writer:generate_summary:49 |     Tokens used: 4559
+2026-01-22 16:49:16 | INFO     | __main__:process_single_channel:55 | Summary generated for: I Bought the Tech House and it Has a PROBLEM…
+2026-01-22 16:49:16 | INFO     | __main__:process_single_channel:38 | Processing video: LG's NEWEST SoundSuite Lineup is nuts
+2026-01-22 16:49:16 | INFO     | src.models.transcript_fetcher:fetch_and_clean:154 |   Fetching transcript for video ID: KeLmi62DmjU
+2026-01-22 16:49:16 | INFO     | src.models.transcript_fetcher:fetch_transcript:66 | Fetching transcript for video: KeLmi62DmjU (languages: ['en'])
+2026-01-22 16:49:18 | INFO     | src.models.transcript_fetcher:fetch_transcript:77 | Transcript fetched successfully (1189 characters)
+2026-01-22 16:49:18 | INFO     | src.models.transcript_fetcher:fetch_and_clean:161 |   Raw transcript: 1189 characters
+2026-01-22 16:49:18 | INFO     | src.models.transcript_fetcher:fetch_and_clean:163 |   ✓ Cleaned transcript: 1189 characters
+2026-01-22 16:49:18 | INFO     | __main__:process_single_channel:43 | Transcript fetched, generating summary...
+2026-01-22 16:49:18 | INFO     | src.models.llm_writer:generate_summary:34 |   Calling Groq API...
+2026-01-22 16:49:18 | INFO     | src.models.llm_writer:generate_summary:35 |     Model: llama-3.3-70b-versatile
+2026-01-22 16:49:18 | INFO     | src.models.llm_writer:generate_summary:36 |     Temperature: 0.7
+2026-01-22 16:49:18 | INFO     | src.models.llm_writer:generate_summary:37 |     Max tokens: 1024
+2026-01-22 16:49:18 | INFO     | src.models.llm_writer:generate_summary:38 |     Input length: 1189 chars
+2026-01-22 16:49:19 | INFO     | httpx:_send_single_request:1025 | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 16:49:19 | INFO     | src.models.llm_writer:generate_summary:48 |   ✓ Summary generated: 428 chars
+2026-01-22 16:49:19 | INFO     | src.models.llm_writer:generate_summary:49 |     Tokens used: 423
+2026-01-22 16:49:19 | INFO     | __main__:process_single_channel:55 | Summary generated for: LG's NEWEST SoundSuite Lineup is nuts
+2026-01-22 16:49:19 | INFO     | __main__:process_single_channel:38 | Processing video: Don’t Wait for the Steam Controller 2!
+2026-01-22 16:49:19 | INFO     | src.models.transcript_fetcher:fetch_and_clean:154 |   Fetching transcript for video ID: eNb55ZwnCRc
+2026-01-22 16:49:19 | INFO     | src.models.transcript_fetcher:fetch_transcript:66 | Fetching transcript for video: eNb55ZwnCRc (languages: ['en'])
+2026-01-22 16:49:22 | INFO     | src.models.transcript_fetcher:fetch_transcript:77 | Transcript fetched successfully (26341 characters)
+2026-01-22 16:49:22 | INFO     | src.models.transcript_fetcher:fetch_and_clean:161 |   Raw transcript: 26341 characters
+2026-01-22 16:49:22 | INFO     | src.models.transcript_fetcher:fetch_and_clean:163 |   ✓ Cleaned transcript: 26341 characters
+2026-01-22 16:49:22 | INFO     | __main__:process_single_channel:43 | Transcript fetched, generating summary...
+2026-01-22 16:49:22 | INFO     | src.models.llm_writer:generate_summary:34 |   Calling Groq API...
+2026-01-22 16:49:22 | INFO     | src.models.llm_writer:generate_summary:35 |     Model: llama-3.3-70b-versatile
+2026-01-22 16:49:22 | INFO     | src.models.llm_writer:generate_summary:36 |     Temperature: 0.7
+2026-01-22 16:49:22 | INFO     | src.models.llm_writer:generate_summary:37 |     Max tokens: 1024
+2026-01-22 16:49:22 | INFO     | src.models.llm_writer:generate_summary:38 |     Input length: 26341 chars
+2026-01-22 16:49:24 | INFO     | httpx:_send_single_request:1025 | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 16:49:24 | INFO     | src.models.llm_writer:generate_summary:48 |   ✓ Summary generated: 1427 chars
+2026-01-22 16:49:24 | INFO     | src.models.llm_writer:generate_summary:49 |     Tokens used: 6700
+2026-01-22 16:49:24 | INFO     | __main__:process_single_channel:55 | Summary generated for: Don’t Wait for the Steam Controller 2!
+2026-01-22 16:49:24 | INFO     | __main__:process_single_channel:38 | Processing video: I’m Done Being Mad about Tech
+2026-01-22 16:49:24 | INFO     | src.models.transcript_fetcher:fetch_and_clean:154 |   Fetching transcript for video ID: wZZf6LM3wAU
+2026-01-22 16:49:24 | INFO     | src.models.transcript_fetcher:fetch_transcript:66 | Fetching transcript for video: wZZf6LM3wAU (languages: ['en'])
+2026-01-22 16:49:27 | INFO     | src.models.transcript_fetcher:fetch_transcript:77 | Transcript fetched successfully (14803 characters)
+2026-01-22 16:49:27 | INFO     | src.models.transcript_fetcher:fetch_and_clean:161 |   Raw transcript: 14803 characters
+2026-01-22 16:49:27 | INFO     | src.models.transcript_fetcher:fetch_and_clean:163 |   ✓ Cleaned transcript: 14803 characters
+2026-01-22 16:49:27 | INFO     | __main__:process_single_channel:43 | Transcript fetched, generating summary...
+2026-01-22 16:49:27 | INFO     | src.models.llm_writer:generate_summary:34 |   Calling Groq API...
+2026-01-22 16:49:27 | INFO     | src.models.llm_writer:generate_summary:35 |     Model: llama-3.3-70b-versatile
+2026-01-22 16:49:27 | INFO     | src.models.llm_writer:generate_summary:36 |     Temperature: 0.7
+2026-01-22 16:49:27 | INFO     | src.models.llm_writer:generate_summary:37 |     Max tokens: 1024
+2026-01-22 16:49:27 | INFO     | src.models.llm_writer:generate_summary:38 |     Input length: 14803 chars
+2026-01-22 16:49:27 | INFO     | httpx:_send_single_request:1025 | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-01-22 16:49:27 | INFO     | openai._base_client:_sleep_for_retry:1071 | Retrying request to /chat/completions in 3.000000 seconds
+2026-01-22 16:49:31 | INFO     | httpx:_send_single_request:1025 | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 16:49:31 | INFO     | src.models.llm_writer:generate_summary:48 |   ✓ Summary generated: 1057 chars
+2026-01-22 16:49:31 | INFO     | src.models.llm_writer:generate_summary:49 |     Tokens used: 3519
+2026-01-22 16:49:31 | INFO     | __main__:process_single_channel:55 | Summary generated for: I’m Done Being Mad about Tech
+2026-01-22 16:49:31 | INFO     | __main__:process_single_channel:38 | Processing video: My TV Demo Failed - WAN Show January 16, 2026
+2026-01-22 16:49:31 | INFO     | src.models.transcript_fetcher:fetch_and_clean:154 |   Fetching transcript for video ID: wcI-lqMwNSY
+2026-01-22 16:49:31 | INFO     | src.models.transcript_fetcher:fetch_transcript:66 | Fetching transcript for video: wcI-lqMwNSY (languages: ['en'])
+2026-01-22 16:49:34 | INFO     | src.models.transcript_fetcher:fetch_transcript:77 | Transcript fetched successfully (171678 characters)
+2026-01-22 16:49:34 | INFO     | src.models.transcript_fetcher:fetch_and_clean:161 |   Raw transcript: 171678 characters
+2026-01-22 16:49:34 | INFO     | src.models.transcript_fetcher:fetch_and_clean:163 |   ✓ Cleaned transcript: 171678 characters
+2026-01-22 16:49:34 | INFO     | __main__:process_single_channel:43 | Transcript fetched, generating summary...
+2026-01-22 16:49:34 | INFO     | src.models.llm_writer:generate_summary:34 |   Calling Groq API...
+2026-01-22 16:49:34 | INFO     | src.models.llm_writer:generate_summary:35 |     Model: llama-3.3-70b-versatile
+2026-01-22 16:49:34 | INFO     | src.models.llm_writer:generate_summary:36 |     Temperature: 0.7
+2026-01-22 16:49:34 | INFO     | src.models.llm_writer:generate_summary:37 |     Max tokens: 1024
+2026-01-22 16:49:34 | INFO     | src.models.llm_writer:generate_summary:38 |     Input length: 171678 chars
+2026-01-22 16:49:35 | INFO     | httpx:_send_single_request:1025 | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
+2026-01-22 16:49:35 | ERROR    | src.models.llm_writer:generate_summary:54 |   ✗ Groq API error: Error code: 413 - {'error': {'message': 'Request too large for model `llama-3.3-70b-versatile` in organization `org_01jq197zw3fwctspwse9b7494a` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Requested 41170, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2026-01-22 16:49:35 | INFO     | __main__:process_single_channel:55 | Summary generated for: My TV Demo Failed - WAN Show January 16, 2026
+2026-01-22 16:49:35 | INFO     | __main__:process_single_channel:38 | Processing video: The TRUTH about How LTT SPENDS Money
+2026-01-22 16:49:35 | INFO     | src.models.transcript_fetcher:fetch_and_clean:154 |   Fetching transcript for video ID: omCWNO7Jbnw
+2026-01-22 16:49:35 | INFO     | src.models.transcript_fetcher:fetch_transcript:66 | Fetching transcript for video: omCWNO7Jbnw (languages: ['en'])
+2026-01-22 16:49:37 | INFO     | src.models.transcript_fetcher:fetch_transcript:77 | Transcript fetched successfully (22359 characters)
+2026-01-22 16:49:37 | INFO     | src.models.transcript_fetcher:fetch_and_clean:161 |   Raw transcript: 22359 characters
+2026-01-22 16:49:37 | INFO     | src.models.transcript_fetcher:fetch_and_clean:163 |   ✓ Cleaned transcript: 22359 characters
+2026-01-22 16:49:37 | INFO     | __main__:process_single_channel:43 | Transcript fetched, generating summary...
+2026-01-22 16:49:37 | INFO     | src.models.llm_writer:generate_summary:34 |   Calling Groq API...
+2026-01-22 16:49:37 | INFO     | src.models.llm_writer:generate_summary:35 |     Model: llama-3.3-70b-versatile
+2026-01-22 16:49:37 | INFO     | src.models.llm_writer:generate_summary:36 |     Temperature: 0.7
+2026-01-22 16:49:37 | INFO     | src.models.llm_writer:generate_summary:37 |     Max tokens: 1024
+2026-01-22 16:49:37 | INFO     | src.models.llm_writer:generate_summary:38 |     Input length: 22359 chars
+2026-01-22 16:49:37 | INFO     | httpx:_send_single_request:1025 | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-01-22 16:49:37 | INFO     | openai._base_client:_sleep_for_retry:1071 | Retrying request to /chat/completions in 18.000000 seconds
+2026-01-22 16:49:58 | INFO     | httpx:_send_single_request:1025 | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 16:49:58 | INFO     | src.models.llm_writer:generate_summary:48 |   ✓ Summary generated: 1846 chars
+2026-01-22 16:49:58 | INFO     | src.models.llm_writer:generate_summary:49 |     Tokens used: 5243
+2026-01-22 16:49:58 | INFO     | __main__:process_single_channel:55 | Summary generated for: The TRUTH about How LTT SPENDS Money
+2026-01-22 16:49:58 | INFO     | __main__:process_single_channel:38 | Processing video: I’m Looking for the WORST Setup on the Internet…
+2026-01-22 16:49:58 | INFO     | src.models.transcript_fetcher:fetch_and_clean:154 |   Fetching transcript for video ID: qklfd81ceeY
+2026-01-22 16:49:58 | INFO     | src.models.transcript_fetcher:fetch_transcript:66 | Fetching transcript for video: qklfd81ceeY (languages: ['en'])
+2026-01-22 16:50:00 | INFO     | src.models.transcript_fetcher:fetch_transcript:77 | Transcript fetched successfully (16282 characters)
+2026-01-22 16:50:00 | INFO     | src.models.transcript_fetcher:fetch_and_clean:161 |   Raw transcript: 16282 characters
+2026-01-22 16:50:00 | INFO     | src.models.transcript_fetcher:fetch_and_clean:163 |   ✓ Cleaned transcript: 16282 characters
+2026-01-22 16:50:00 | INFO     | __main__:process_single_channel:43 | Transcript fetched, generating summary...
+2026-01-22 16:50:00 | INFO     | src.models.llm_writer:generate_summary:34 |   Calling Groq API...
+2026-01-22 16:50:00 | INFO     | src.models.llm_writer:generate_summary:35 |     Model: llama-3.3-70b-versatile
+2026-01-22 16:50:00 | INFO     | src.models.llm_writer:generate_summary:36 |     Temperature: 0.7
+2026-01-22 16:50:00 | INFO     | src.models.llm_writer:generate_summary:37 |     Max tokens: 1024
+2026-01-22 16:50:00 | INFO     | src.models.llm_writer:generate_summary:38 |     Input length: 16282 chars
+2026-01-22 16:50:00 | INFO     | httpx:_send_single_request:1025 | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-01-22 16:50:00 | INFO     | openai._base_client:_sleep_for_retry:1071 | Retrying request to /chat/completions in 19.000000 seconds
+2026-01-22 16:50:20 | INFO     | httpx:_send_single_request:1025 | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 16:50:20 | INFO     | src.models.llm_writer:generate_summary:48 |   ✓ Summary generated: 683 chars
+2026-01-22 16:50:20 | INFO     | src.models.llm_writer:generate_summary:49 |     Tokens used: 4468
+2026-01-22 16:50:20 | INFO     | __main__:process_single_channel:55 | Summary generated for: I’m Looking for the WORST Setup on the Internet…
+2026-01-22 16:50:20 | INFO     | __main__:process_single_channel:38 | Processing video: I Joined Robot Fight Club
+2026-01-22 16:50:20 | INFO     | src.models.transcript_fetcher:fetch_and_clean:154 |   Fetching transcript for video ID: VJqMPFNP4to
+2026-01-22 16:50:20 | INFO     | src.models.transcript_fetcher:fetch_transcript:66 | Fetching transcript for video: VJqMPFNP4to (languages: ['en'])
+2026-01-22 16:50:23 | INFO     | src.models.transcript_fetcher:fetch_transcript:77 | Transcript fetched successfully (11108 characters)
+2026-01-22 16:50:23 | INFO     | src.models.transcript_fetcher:fetch_and_clean:161 |   Raw transcript: 11108 characters
+2026-01-22 16:50:23 | INFO     | src.models.transcript_fetcher:fetch_and_clean:163 |   ✓ Cleaned transcript: 11108 characters
+2026-01-22 16:50:23 | INFO     | __main__:process_single_channel:43 | Transcript fetched, generating summary...
+2026-01-22 16:50:23 | INFO     | src.models.llm_writer:generate_summary:34 |   Calling Groq API...
+2026-01-22 16:50:23 | INFO     | src.models.llm_writer:generate_summary:35 |     Model: llama-3.3-70b-versatile
+2026-01-22 16:50:23 | INFO     | src.models.llm_writer:generate_summary:36 |     Temperature: 0.7
+2026-01-22 16:50:23 | INFO     | src.models.llm_writer:generate_summary:37 |     Max tokens: 1024
+2026-01-22 16:50:23 | INFO     | src.models.llm_writer:generate_summary:38 |     Input length: 11108 chars
+2026-01-22 16:50:23 | INFO     | httpx:_send_single_request:1025 | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-01-22 16:50:23 | INFO     | openai._base_client:_sleep_for_retry:1071 | Retrying request to /chat/completions in 11.000000 seconds
+2026-01-22 16:50:35 | INFO     | httpx:_send_single_request:1025 | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 16:50:35 | INFO     | src.models.llm_writer:generate_summary:48 |   ✓ Summary generated: 807 chars
+2026-01-22 16:50:35 | INFO     | src.models.llm_writer:generate_summary:49 |     Tokens used: 3023
+2026-01-22 16:50:35 | INFO     | __main__:process_single_channel:55 | Summary generated for: I Joined Robot Fight Club
+2026-01-22 16:50:35 | INFO     | __main__:process_single_channel:38 | Processing video: The most powerful compact PC
+2026-01-22 16:50:35 | INFO     | src.models.transcript_fetcher:fetch_and_clean:154 |   Fetching transcript for video ID: -nTm_xZY3o4
+2026-01-22 16:50:35 | INFO     | src.models.transcript_fetcher:fetch_transcript:66 | Fetching transcript for video: -nTm_xZY3o4 (languages: ['en'])
+2026-01-22 16:50:37 | INFO     | src.models.transcript_fetcher:fetch_transcript:77 | Transcript fetched successfully (619 characters)
+2026-01-22 16:50:37 | INFO     | src.models.transcript_fetcher:fetch_and_clean:161 |   Raw transcript: 619 characters
+2026-01-22 16:50:37 | INFO     | src.models.transcript_fetcher:fetch_and_clean:163 |   ✓ Cleaned transcript: 619 characters
+2026-01-22 16:50:37 | INFO     | __main__:process_single_channel:43 | Transcript fetched, generating summary...
+2026-01-22 16:50:37 | INFO     | src.models.llm_writer:generate_summary:34 |   Calling Groq API...
+2026-01-22 16:50:37 | INFO     | src.models.llm_writer:generate_summary:35 |     Model: llama-3.3-70b-versatile
+2026-01-22 16:50:37 | INFO     | src.models.llm_writer:generate_summary:36 |     Temperature: 0.7
+2026-01-22 16:50:37 | INFO     | src.models.llm_writer:generate_summary:37 |     Max tokens: 1024
+2026-01-22 16:50:37 | INFO     | src.models.llm_writer:generate_summary:38 |     Input length: 619 chars
+2026-01-22 16:50:38 | INFO     | httpx:_send_single_request:1025 | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 16:50:38 | INFO     | src.models.llm_writer:generate_summary:48 |   ✓ Summary generated: 167 chars
+2026-01-22 16:50:38 | INFO     | src.models.llm_writer:generate_summary:49 |     Tokens used: 245
+2026-01-22 16:50:38 | INFO     | __main__:process_single_channel:55 | Summary generated for: The most powerful compact PC
+2026-01-22 16:50:38 | INFO     | __main__:process_single_channel:38 | Processing video: CES was frickin weird, guys
+2026-01-22 16:50:38 | INFO     | src.models.transcript_fetcher:fetch_and_clean:154 |   Fetching transcript for video ID: Px117so_Mww
+2026-01-22 16:50:38 | INFO     | src.models.transcript_fetcher:fetch_transcript:66 | Fetching transcript for video: Px117so_Mww (languages: ['en'])
+2026-01-22 16:50:41 | INFO     | src.models.transcript_fetcher:fetch_transcript:77 | Transcript fetched successfully (6619 characters)
+2026-01-22 16:50:41 | INFO     | src.models.transcript_fetcher:fetch_and_clean:161 |   Raw transcript: 6619 characters
+2026-01-22 16:50:41 | INFO     | src.models.transcript_fetcher:fetch_and_clean:163 |   ✓ Cleaned transcript: 6619 characters
+2026-01-22 16:50:41 | INFO     | __main__:process_single_channel:43 | Transcript fetched, generating summary...
+2026-01-22 16:50:41 | INFO     | src.models.llm_writer:generate_summary:34 |   Calling Groq API...
+2026-01-22 16:50:41 | INFO     | src.models.llm_writer:generate_summary:35 |     Model: llama-3.3-70b-versatile
+2026-01-22 16:50:41 | INFO     | src.models.llm_writer:generate_summary:36 |     Temperature: 0.7
+2026-01-22 16:50:41 | INFO     | src.models.llm_writer:generate_summary:37 |     Max tokens: 1024
+2026-01-22 16:50:41 | INFO     | src.models.llm_writer:generate_summary:38 |     Input length: 6619 chars
+2026-01-22 16:50:41 | INFO     | httpx:_send_single_request:1025 | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-01-22 16:50:41 | INFO     | openai._base_client:_sleep_for_retry:1071 | Retrying request to /chat/completions in 4.000000 seconds
+2026-01-22 16:50:45 | INFO     | httpx:_send_single_request:1025 | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 16:50:45 | INFO     | src.models.llm_writer:generate_summary:48 |   ✓ Summary generated: 810 chars
+2026-01-22 16:50:45 | INFO     | src.models.llm_writer:generate_summary:49 |     Tokens used: 1786
+2026-01-22 16:50:45 | INFO     | __main__:process_single_channel:55 | Summary generated for: CES was frickin weird, guys
+2026-01-22 16:50:45 | INFO     | __main__:process_single_channel:38 | Processing video: This Country Gave YouTube The Smack Down - WAN Show January 9, 2026
+2026-01-22 16:50:45 | INFO     | src.models.transcript_fetcher:fetch_and_clean:154 |   Fetching transcript for video ID: QFtCeGjKOxU
+2026-01-22 16:50:45 | INFO     | src.models.transcript_fetcher:fetch_transcript:66 | Fetching transcript for video: QFtCeGjKOxU (languages: ['en'])
+2026-01-22 16:50:48 | INFO     | src.models.transcript_fetcher:fetch_transcript:77 | Transcript fetched successfully (198671 characters)
+2026-01-22 16:50:48 | INFO     | src.models.transcript_fetcher:fetch_and_clean:161 |   Raw transcript: 198671 characters
+2026-01-22 16:50:48 | INFO     | src.models.transcript_fetcher:fetch_and_clean:163 |   ✓ Cleaned transcript: 198671 characters
+2026-01-22 16:50:48 | INFO     | __main__:process_single_channel:43 | Transcript fetched, generating summary...
+2026-01-22 16:50:48 | INFO     | src.models.llm_writer:generate_summary:34 |   Calling Groq API...
+2026-01-22 16:50:48 | INFO     | src.models.llm_writer:generate_summary:35 |     Model: llama-3.3-70b-versatile
+2026-01-22 16:50:48 | INFO     | src.models.llm_writer:generate_summary:36 |     Temperature: 0.7
+2026-01-22 16:50:48 | INFO     | src.models.llm_writer:generate_summary:37 |     Max tokens: 1024
+2026-01-22 16:50:48 | INFO     | src.models.llm_writer:generate_summary:38 |     Input length: 198671 chars
+2026-01-22 16:50:48 | INFO     | httpx:_send_single_request:1025 | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
+2026-01-22 16:50:48 | ERROR    | src.models.llm_writer:generate_summary:54 |   ✗ Groq API error: Error code: 413 - {'error': {'message': 'Request too large for model `llama-3.3-70b-versatile` in organization `org_01jq197zw3fwctspwse9b7494a` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Requested 48266, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2026-01-22 16:50:48 | INFO     | __main__:process_single_channel:55 | Summary generated for: This Country Gave YouTube The Smack Down - WAN Show January 9, 2026
+2026-01-22 16:50:48 | INFO     | __main__:process_single_channel:38 | Processing video: Robot Battery Bank?
+2026-01-22 16:50:49 | INFO     | src.models.transcript_fetcher:fetch_and_clean:154 |   Fetching transcript for video ID: Mo-0nz6Mlig
+2026-01-22 16:50:49 | INFO     | src.models.transcript_fetcher:fetch_transcript:66 | Fetching transcript for video: Mo-0nz6Mlig (languages: ['en'])
+2026-01-22 16:50:51 | INFO     | src.models.transcript_fetcher:fetch_transcript:77 | Transcript fetched successfully (758 characters)
+2026-01-22 16:50:51 | INFO     | src.models.transcript_fetcher:fetch_and_clean:161 |   Raw transcript: 758 characters
+2026-01-22 16:50:51 | INFO     | src.models.transcript_fetcher:fetch_and_clean:163 |   ✓ Cleaned transcript: 758 characters
+2026-01-22 16:50:51 | INFO     | __main__:process_single_channel:43 | Transcript fetched, generating summary...
+2026-01-22 16:50:51 | INFO     | src.models.llm_writer:generate_summary:34 |   Calling Groq API...
+2026-01-22 16:50:51 | INFO     | src.models.llm_writer:generate_summary:35 |     Model: llama-3.3-70b-versatile
+2026-01-22 16:50:51 | INFO     | src.models.llm_writer:generate_summary:36 |     Temperature: 0.7
+2026-01-22 16:50:51 | INFO     | src.models.llm_writer:generate_summary:37 |     Max tokens: 1024
+2026-01-22 16:50:51 | INFO     | src.models.llm_writer:generate_summary:38 |     Input length: 758 chars
+2026-01-22 16:50:51 | INFO     | httpx:_send_single_request:1025 | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 16:50:51 | INFO     | src.models.llm_writer:generate_summary:48 |   ✓ Summary generated: 282 chars
+2026-01-22 16:50:51 | INFO     | src.models.llm_writer:generate_summary:49 |     Tokens used: 299
+2026-01-22 16:50:51 | INFO     | __main__:process_single_channel:55 | Summary generated for: Robot Battery Bank?
+2026-01-22 16:50:51 | INFO     | __main__:process_single_channel:38 | Processing video: He Restored an Old Apple Mouse
+2026-01-22 16:50:51 | INFO     | src.models.transcript_fetcher:fetch_and_clean:154 |   Fetching transcript for video ID: iBt1TLBFTRs
+2026-01-22 16:50:51 | INFO     | src.models.transcript_fetcher:fetch_transcript:66 | Fetching transcript for video: iBt1TLBFTRs (languages: ['en'])
+2026-01-22 16:50:54 | INFO     | src.models.transcript_fetcher:fetch_transcript:77 | Transcript fetched successfully (517 characters)
+2026-01-22 16:50:54 | INFO     | src.models.transcript_fetcher:fetch_and_clean:161 |   Raw transcript: 517 characters
+2026-01-22 16:50:54 | INFO     | src.models.transcript_fetcher:fetch_and_clean:163 |   ✓ Cleaned transcript: 517 characters
+2026-01-22 16:50:54 | INFO     | __main__:process_single_channel:43 | Transcript fetched, generating summary...
+2026-01-22 16:50:54 | INFO     | src.models.llm_writer:generate_summary:34 |   Calling Groq API...
+2026-01-22 16:50:54 | INFO     | src.models.llm_writer:generate_summary:35 |     Model: llama-3.3-70b-versatile
+2026-01-22 16:50:54 | INFO     | src.models.llm_writer:generate_summary:36 |     Temperature: 0.7
+2026-01-22 16:50:54 | INFO     | src.models.llm_writer:generate_summary:37 |     Max tokens: 1024
+2026-01-22 16:50:54 | INFO     | src.models.llm_writer:generate_summary:38 |     Input length: 517 chars
+2026-01-22 16:50:54 | INFO     | httpx:_send_single_request:1025 | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 16:50:54 | INFO     | src.models.llm_writer:generate_summary:48 |   ✓ Summary generated: 212 chars
+2026-01-22 16:50:54 | INFO     | src.models.llm_writer:generate_summary:49 |     Tokens used: 214
+2026-01-22 16:50:54 | INFO     | __main__:process_single_channel:55 | Summary generated for: He Restored an Old Apple Mouse
+2026-01-22 16:50:54 | INFO     | __main__:process_single_channel:38 | Processing video: NVIDIA DLSS 4.5 Explained in 69 seconds
+2026-01-22 16:50:54 | INFO     | src.models.transcript_fetcher:fetch_and_clean:154 |   Fetching transcript for video ID: pdM3d0DRY8U
+2026-01-22 16:50:54 | INFO     | src.models.transcript_fetcher:fetch_transcript:66 | Fetching transcript for video: pdM3d0DRY8U (languages: ['en'])
+2026-01-22 16:50:57 | INFO     | src.models.transcript_fetcher:fetch_transcript:77 | Transcript fetched successfully (1333 characters)
+2026-01-22 16:50:57 | INFO     | src.models.transcript_fetcher:fetch_and_clean:161 |   Raw transcript: 1333 characters
+2026-01-22 16:50:57 | INFO     | src.models.transcript_fetcher:fetch_and_clean:163 |   ✓ Cleaned transcript: 1333 characters
+2026-01-22 16:50:57 | INFO     | __main__:process_single_channel:43 | Transcript fetched, generating summary...
+2026-01-22 16:50:57 | INFO     | src.models.llm_writer:generate_summary:34 |   Calling Groq API...
+2026-01-22 16:50:57 | INFO     | src.models.llm_writer:generate_summary:35 |     Model: llama-3.3-70b-versatile
+2026-01-22 16:50:57 | INFO     | src.models.llm_writer:generate_summary:36 |     Temperature: 0.7
+2026-01-22 16:50:57 | INFO     | src.models.llm_writer:generate_summary:37 |     Max tokens: 1024
+2026-01-22 16:50:57 | INFO     | src.models.llm_writer:generate_summary:38 |     Input length: 1333 chars
+2026-01-22 16:50:58 | INFO     | httpx:_send_single_request:1025 | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 16:50:58 | INFO     | src.models.llm_writer:generate_summary:48 |   ✓ Summary generated: 521 chars
+2026-01-22 16:50:58 | INFO     | src.models.llm_writer:generate_summary:49 |     Tokens used: 464
+2026-01-22 16:50:58 | INFO     | __main__:process_single_channel:55 | Summary generated for: NVIDIA DLSS 4.5 Explained in 69 seconds
+2026-01-22 16:50:58 | INFO     | __main__:process_single_channel:38 | Processing video: Intel’s Best Product in YEARS - Panther Lake Announcement
+2026-01-22 16:50:58 | INFO     | src.models.transcript_fetcher:fetch_and_clean:154 |   Fetching transcript for video ID: bG68OBQ3x9Y
+2026-01-22 16:50:58 | INFO     | src.models.transcript_fetcher:fetch_transcript:66 | Fetching transcript for video: bG68OBQ3x9Y (languages: ['en'])
+2026-01-22 16:51:00 | INFO     | src.models.transcript_fetcher:fetch_transcript:77 | Transcript fetched successfully (9146 characters)
+2026-01-22 16:51:00 | INFO     | src.models.transcript_fetcher:fetch_and_clean:161 |   Raw transcript: 9146 characters
+2026-01-22 16:51:00 | INFO     | src.models.transcript_fetcher:fetch_and_clean:163 |   ✓ Cleaned transcript: 9146 characters
+2026-01-22 16:51:00 | INFO     | __main__:process_single_channel:43 | Transcript fetched, generating summary...
+2026-01-22 16:51:00 | INFO     | src.models.llm_writer:generate_summary:34 |   Calling Groq API...
+2026-01-22 16:51:00 | INFO     | src.models.llm_writer:generate_summary:35 |     Model: llama-3.3-70b-versatile
+2026-01-22 16:51:00 | INFO     | src.models.llm_writer:generate_summary:36 |     Temperature: 0.7
+2026-01-22 16:51:00 | INFO     | src.models.llm_writer:generate_summary:37 |     Max tokens: 1024
+2026-01-22 16:51:00 | INFO     | src.models.llm_writer:generate_summary:38 |     Input length: 9146 chars
+2026-01-22 16:51:01 | INFO     | httpx:_send_single_request:1025 | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 16:51:01 | INFO     | src.models.llm_writer:generate_summary:48 |   ✓ Summary generated: 896 chars
+2026-01-22 16:51:01 | INFO     | src.models.llm_writer:generate_summary:49 |     Tokens used: 2304
+2026-01-22 16:51:01 | INFO     | __main__:process_single_channel:55 | Summary generated for: Intel’s Best Product in YEARS - Panther Lake Announcement
+2026-01-22 16:51:01 | INFO     | __main__:process_single_channel:59 | Processed 15 items from channel
+2026-01-22 16:51:01 | INFO     | __main__:run:82 | 
+================================================================================
+2026-01-22 16:51:01 | INFO     | __main__:run:83 | PIPELINE COMPLETE
+2026-01-22 16:51:01 | INFO     | __main__:run:84 | Total items generated: 15
+2026-01-22 16:51:01 | INFO     | __main__:run:86 | 
+Generated items:
+2026-01-22 16:51:01 | INFO     | __main__:run:88 |   1. I Bought the Tech House and it Has a PROBLEM…
+2026-01-22 16:51:01 | INFO     | __main__:run:88 |   2. LG's NEWEST SoundSuite Lineup is nuts
+2026-01-22 16:51:01 | INFO     | __main__:run:88 |   3. Don’t Wait for the Steam Controller 2!
+2026-01-22 16:51:01 | INFO     | __main__:run:88 |   4. I’m Done Being Mad about Tech
+2026-01-22 16:51:01 | INFO     | __main__:run:88 |   5. My TV Demo Failed - WAN Show January 16, 2026
+2026-01-22 16:51:01 | INFO     | __main__:run:88 |   6. The TRUTH about How LTT SPENDS Money
+2026-01-22 16:51:01 | INFO     | __main__:run:88 |   7. I’m Looking for the WORST Setup on the Internet…
+2026-01-22 16:51:01 | INFO     | __main__:run:88 |   8. I Joined Robot Fight Club
+2026-01-22 16:51:01 | INFO     | __main__:run:88 |   9. The most powerful compact PC
+2026-01-22 16:51:01 | INFO     | __main__:run:88 |   10. CES was frickin weird, guys
+2026-01-22 16:51:01 | INFO     | __main__:run:88 |   11. This Country Gave YouTube The Smack Down - WAN Show January 9, 2026
+2026-01-22 16:51:01 | INFO     | __main__:run:88 |   12. Robot Battery Bank?
+2026-01-22 16:51:01 | INFO     | __main__:run:88 |   13. He Restored an Old Apple Mouse
+2026-01-22 16:51:01 | INFO     | __main__:run:88 |   14. NVIDIA DLSS 4.5 Explained in 69 seconds
+2026-01-22 16:51:01 | INFO     | __main__:run:88 |   15. Intel’s Best Product in YEARS - Panther Lake Announcement
+2026-01-22 16:51:01 | INFO     | __main__:run:89 | ================================================================================
+
+2026-01-22 16:56:04 | INFO     | root:setup_logging:75 | ================================================================================
+2026-01-22 16:56:04 | INFO     | root:setup_logging:76 | Logging initialized | Level: INFO | File: logs\pipeline_20260122.log
+2026-01-22 16:56:04 | INFO     | root:setup_logging:77 | ================================================================================
+2026-01-22 16:56:04 | INFO     | __main__:<module>:102 | Initializing YouTube Pipeline...
+2026-01-22 16:56:04 | INFO     | src.models.source_tracker:load_sources:31 | Loaded 1 source(s) from youtube_sources.csv
+2026-01-22 16:56:06 | INFO     | __main__:run:66 | 
+================================================================================
+2026-01-22 16:56:06 | INFO     | __main__:run:67 | YOUTUBE PIPELINE STARTED
+2026-01-22 16:56:06 | INFO     | __main__:run:68 | ================================================================================
+2026-01-22 16:56:06 | INFO     | __main__:run:72 | 
+Total sources to process: 1
+2026-01-22 16:56:06 | INFO     | __main__:run:75 | 
+################################################################################
+2026-01-22 16:56:06 | INFO     | __main__:run:76 | SOURCE 1/1: LinusTechTips
+2026-01-22 16:56:06 | INFO     | __main__:run:77 | ################################################################################
+2026-01-22 16:56:06 | INFO     | src.models.yt_channel_resolver:get_channel_id:20 | Resolving channel ID for: https://www.youtube.com/@LinusTechTips
+2026-01-22 16:56:08 | INFO     | src.models.youtube_finder:find_new_videos:56 | Using relative time: 48 hours ago = 2026-01-20 11:26:08.479257+00:00
+2026-01-22 16:56:08 | INFO     | src.models.youtube_finder:find_new_videos:59 | Fetching RSS feed from: https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw
+2026-01-22 16:56:10 | INFO     | src.models.youtube_finder:find_new_videos:76 | Channel: Linus Tech Tips
+2026-01-22 16:56:10 | INFO     | src.models.youtube_finder:find_new_videos:77 | Total entries in RSS feed: 15
+2026-01-22 16:56:10 | INFO     | src.models.youtube_finder:find_new_videos:104 |   ✓ New video found: 'I Bought the Tech House and it Has a PROBLEM…'
+2026-01-22 16:56:10 | INFO     | src.models.youtube_finder:find_new_videos:105 |     Published: 2026-01-21 18:05:10+00:00
+2026-01-22 16:56:10 | INFO     | src.models.youtube_finder:find_new_videos:131 |     Video ID: sPU6wVz2iE8
+2026-01-22 16:56:10 | INFO     | src.models.youtube_finder:find_new_videos:104 |   ✓ New video found: 'LG's NEWEST SoundSuite Lineup is nuts'
+2026-01-22 16:56:10 | INFO     | src.models.youtube_finder:find_new_videos:105 |     Published: 2026-01-20 22:33:03+00:00
+2026-01-22 16:56:10 | INFO     | src.models.youtube_finder:find_new_videos:131 |     Video ID: KeLmi62DmjU
+2026-01-22 16:56:10 | INFO     | src.models.youtube_finder:find_new_videos:133 | \n────────────────────────────────────────────────────────────
+2026-01-22 16:56:10 | INFO     | src.models.youtube_finder:find_new_videos:134 | SUMMARY: Found 2 new video(s) after cutoff time
+2026-01-22 16:56:10 | INFO     | src.models.youtube_finder:find_new_videos:135 | ────────────────────────────────────────────────────────────
+2026-01-22 16:56:10 | INFO     | __main__:process_single_channel:37 | Processing video: I Bought the Tech House and it Has a PROBLEM…
+2026-01-22 16:56:10 | INFO     | src.models.transcript_fetcher:fetch_and_clean:154 |   Fetching transcript for video ID: sPU6wVz2iE8
+2026-01-22 16:56:10 | INFO     | src.models.transcript_fetcher:fetch_transcript:66 | Fetching transcript for video: sPU6wVz2iE8 (languages: ['en'])
+2026-01-22 16:56:13 | ERROR    | src.models.transcript_fetcher:fetch_transcript:81 | Could not fetch transcript for video sPU6wVz2iE8: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=sPU6wVz2iE8! This is most likely caused by:
+
+YouTube is blocking requests from your IP. This usually is due to one of the following reasons:
+- You have done too many requests and your IP has been blocked by YouTube
+- You are doing requests from an IP belonging to a cloud provider (like AWS, Google Cloud Platform, Azure, etc.). Unfortunately, most IPs from cloud providers are blocked by YouTube.
+
+Ways to work around this are explained in the "Working around IP bans" section of the README (https://github.com/jdepoix/youtube-transcript-api?tab=readme-ov-file#working-around-ip-bans-requestblocked-or-ipblocked-exception).
+
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+2026-01-22 16:56:13 | WARNING  | src.models.transcript_fetcher:fetch_and_clean:158 |   ✗ No transcript available
+2026-01-22 16:56:13 | WARNING  | __main__:process_single_channel:56 | No transcript available for: I Bought the Tech House and it Has a PROBLEM…
+2026-01-22 16:56:13 | INFO     | __main__:process_single_channel:37 | Processing video: LG's NEWEST SoundSuite Lineup is nuts
+2026-01-22 16:56:13 | INFO     | src.models.transcript_fetcher:fetch_and_clean:154 |   Fetching transcript for video ID: KeLmi62DmjU
+2026-01-22 16:56:13 | INFO     | src.models.transcript_fetcher:fetch_transcript:66 | Fetching transcript for video: KeLmi62DmjU (languages: ['en'])
+2026-01-22 16:56:17 | ERROR    | src.models.transcript_fetcher:fetch_transcript:81 | Could not fetch transcript for video KeLmi62DmjU: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=KeLmi62DmjU! This is most likely caused by:
+
+YouTube is blocking requests from your IP. This usually is due to one of the following reasons:
+- You have done too many requests and your IP has been blocked by YouTube
+- You are doing requests from an IP belonging to a cloud provider (like AWS, Google Cloud Platform, Azure, etc.). Unfortunately, most IPs from cloud providers are blocked by YouTube.
+
+Ways to work around this are explained in the "Working around IP bans" section of the README (https://github.com/jdepoix/youtube-transcript-api?tab=readme-ov-file#working-around-ip-bans-requestblocked-or-ipblocked-exception).
+
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+2026-01-22 16:56:17 | WARNING  | src.models.transcript_fetcher:fetch_and_clean:158 |   ✗ No transcript available
+2026-01-22 16:56:17 | WARNING  | __main__:process_single_channel:56 | No transcript available for: LG's NEWEST SoundSuite Lineup is nuts
+2026-01-22 16:56:17 | INFO     | __main__:process_single_channel:58 | Processed 0 items from channel
+2026-01-22 16:56:17 | INFO     | __main__:run:81 | 
+================================================================================
+2026-01-22 16:56:17 | INFO     | __main__:run:82 | PIPELINE COMPLETE
+2026-01-22 16:56:17 | INFO     | __main__:run:83 | Total items generated: 0
+2026-01-22 16:56:17 | INFO     | __main__:run:88 | ================================================================================
+

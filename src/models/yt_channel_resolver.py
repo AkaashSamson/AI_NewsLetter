@@ -1,5 +1,8 @@
 import requests
 import re
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class YouTubeChannelResolver:
@@ -14,6 +17,7 @@ class YouTubeChannelResolver:
         Takes any YouTube channel URL and returns permanent owner channel_id (UC...).
         Raises ValueError if not found.
         """
+        logger.info(f"Resolving channel ID for: {channel_url}")
 
         # Normalize URL
         if not channel_url.startswith("http"):

@@ -3,9 +3,8 @@ AI Newsletter - Pipelines Package
 Orchestration layer for processing workflows
 """
 
-from .youtube_pipeline import YouTubePipeline, main_youtube_pipeline
+from .youtube_pipeline import YouTubePipeline
 
 __all__ = [
     "YouTubePipeline",
-    "main_youtube_pipeline",
 ]

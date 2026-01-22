@@ -4,8 +4,11 @@ Role: Minimal CSV handler to load sources and update timestamps.
 """
 
 import csv
+import logging
 from pathlib import Path
 from typing import List, Dict, Any
+
+logger = logging.getLogger(__name__)
 
 
 class SourceTracker:
@@ -19,11 +22,15 @@ class SourceTracker:
     def load_sources(self) -> None:
         """Load sources from CSV file."""
         if not self.sources_file.exists():
+            logger.warning(f"Sources file not found: {self.sources_file}")
             return
 
         with open(self.sources_file, "r", encoding="utf-8") as f:
             reader = csv.DictReader(f)
             self.sources = list(reader)
+            logger.info(
+                f"Loaded {len(self.sources)} source(s) from {self.sources_file}"
+            )
 
     def get_sources(self) -> List[Dict[str, Any]]:
         """Return all loaded sources."""

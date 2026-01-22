@@ -1,0 +1,21 @@
+# config.yaml
+llm:
+  provider: "groq"  # Toggle this between "groq" and "gemini"
+  
+  groq:
+    model: "llama-3.3-70b-versatile"
+    temperature: 0.7
+    max_tokens: 1024
+    
+  gemini:
+    model: "gemini-1.5-pro"
+    temperature: 0.5
+    max_tokens: 2048
+
+pipeline:
+  sources_file: "youtube_sources.csv"
+  output_file: "daily_digest.json"
+
+email:
+  recipient_email: "your-email@example.com"
+  subject_prefix: "Daily AI Intelligence"

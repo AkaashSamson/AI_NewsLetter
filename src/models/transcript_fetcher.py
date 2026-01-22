@@ -7,7 +7,9 @@ from typing import Dict, Any
 import re
 import json
 import sys
+import logging
 
+logger = logging.getLogger(__name__)
 try:
     from youtube_transcript_api import YouTubeTranscriptApi
 
@@ -61,6 +63,10 @@ class TranscriptFetcher:
         if languages is None:
             languages = ["en"]
 
+        logger.info(
+            f"Fetching transcript for video: {video_id} (languages: {languages})"
+        )
+
         try:
 
             # transcript = YouTubeTranscriptApi.fetch(video_id, languages=languages)
@@ -68,10 +74,11 @@ class TranscriptFetcher:
             transcript = ytt_api.fetch(video_id, languages=languages)
             # Merge transcript entries into continuous text
             text = " ".join([entry.text for entry in transcript])
+            logger.info(f"Transcript fetched successfully ({len(text)} characters)")
             return text
 
         except Exception as e:
-            print(f"Could not fetch transcript for video {video_id}: {e}")
+            logger.error(f"Could not fetch transcript for video {video_id}: {e}")
             return None
 
     def clean_transcript(self, text: str) -> str:
@@ -130,7 +137,7 @@ class TranscriptFetcher:
         return ". ".join(cleaned_sentences)
 
     def fetch_and_clean(
-        self, video_id: str, title: str, link: str, languages: list = None
+        self, video_id: str, title: str, link: str = None, languages: list = None
     ) -> Dict[str, Any] | None:
         """
         Fetch and clean transcript in one call.
@@ -138,18 +145,23 @@ class TranscriptFetcher:
         Args:
             video_id: YouTube video ID
             title: Video title
-            link: Video link
+            link: Video link (optional)
             languages: Language preferences
 
         Returns:
             Dict with video_id, title, clean_text, link or None
         """
+        logger.info(f"  Fetching transcript for video ID: {video_id}")
         raw_text = self.fetch_transcript(video_id, languages)
 
         if raw_text is None:
+            logger.warning(f"  ✗ No transcript available")
             return None
 
+        logger.info(f"  Raw transcript: {len(raw_text)} characters")
         clean_text = self.clean_transcript(raw_text)
+        logger.info(f"  ✓ Cleaned transcript: {len(clean_text)} characters")
+        logger.debug(f"  Transcript preview: {clean_text[:200]}...")
 
         return {
             "video_id": video_id,
