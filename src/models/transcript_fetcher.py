@@ -1,0 +1,176 @@
+"""
+TranscriptFetcher Module
+Role: Fetch YouTube transcripts and clean them.
+"""
+
+from typing import Dict, Any
+import re
+import json
+import sys
+
+try:
+    from youtube_transcript_api import YouTubeTranscriptApi
+
+    TRANSCRIPT_API_AVAILABLE = True
+except ImportError:
+    TRANSCRIPT_API_AVAILABLE = False
+
+
+class TranscriptFetcher:
+    """Fetches and cleans YouTube video transcripts."""
+
+    # Common filler words/sounds to remove
+    FILLER_WORDS = {
+        "um",
+        "uh",
+        "like",
+        "you know",
+        "basically",
+        "literally",
+        "actually",
+        "honestly",
+        "right",
+        "so",
+        "yeah",
+        "okay",
+        "alright",
+        "well",
+    }
+
+    def __init__(self):
+        """Initialize TranscriptFetcher."""
+        if not TRANSCRIPT_API_AVAILABLE:
+            raise RuntimeError(
+                "youtube-transcript-api not installed. Install with: pip install youtube-transcript-api"
+            )
+
+    def fetch_transcript(self, video_id: str, languages: list = None) -> str | None:
+        """
+        Fetch transcript for a YouTube video.
+
+        Args:
+            video_id: YouTube video ID
+            languages: List of language codes to try (e.g., ['en', 'es'])
+
+        Returns:
+            Transcript text or None if not available
+        """
+        if not TRANSCRIPT_API_AVAILABLE:
+            raise RuntimeError("youtube-transcript-api not installed")
+
+        if languages is None:
+            languages = ["en"]
+
+        try:
+
+            # transcript = YouTubeTranscriptApi.fetch(video_id, languages=languages)
+            ytt_api = YouTubeTranscriptApi()
+            transcript = ytt_api.fetch(video_id, languages=languages)
+            # Merge transcript entries into continuous text
+            text = " ".join([entry.text for entry in transcript])
+            return text
+
+        except Exception as e:
+            print(f"Could not fetch transcript for video {video_id}: {e}")
+            return None
+
+    def clean_transcript(self, text: str) -> str:
+        """
+        Clean raw transcript text.
+
+        Operations:
+        - Remove timestamps and brackets
+        - Normalize spaces
+        - Remove filler words at start of sentences
+        - Remove repeated punctuation
+
+        Args:
+            text: Raw transcript text
+
+        Returns:
+            Cleaned text
+        """
+        # if not text:
+        #     return ""
+
+        # # Remove bracketed content (like [Music], [Applause])
+        # text = re.sub(r"\[.*?\]", "", text)
+
+        # # Remove multiple spaces
+        # text = re.sub(r"\s+", " ", text)
+
+        # # Remove repeated punctuation
+        # text = re.sub(r"\.{2,}", ".", text)
+        # text = re.sub(r"!{2,}", "!", text)
+        # text = re.sub(r"\?{2,}", "?", text)
+
+        # # Clean up filler words at the beginning of sentences
+        # text = self._remove_filler_words(text)
+
+        # # Normalize spacing around punctuation
+        # text = re.sub(r"\s+([.,!?;:])", r"\1", text)
+        # text = re.sub(r"([.,!?;:])\s*([a-zA-Z])", r"\1 \2", text)
+
+        return text.strip()
+
+    def _remove_filler_words(self, text: str) -> str:
+        """Remove filler words at the beginning of sentences."""
+        sentences = text.split(". ")
+        cleaned_sentences = []
+
+        for sentence in sentences:
+            words = sentence.split()
+            # Remove leading filler words
+            while words and words[0].lower().rstrip(",") in self.FILLER_WORDS:
+                words.pop(0)
+
+            if words:
+                cleaned_sentences.append(" ".join(words))
+
+        return ". ".join(cleaned_sentences)
+
+    def fetch_and_clean(
+        self, video_id: str, title: str, link: str, languages: list = None
+    ) -> Dict[str, Any] | None:
+        """
+        Fetch and clean transcript in one call.
+
+        Args:
+            video_id: YouTube video ID
+            title: Video title
+            link: Video link
+            languages: Language preferences
+
+        Returns:
+            Dict with video_id, title, clean_text, link or None
+        """
+        raw_text = self.fetch_transcript(video_id, languages)
+
+        if raw_text is None:
+            return None
+
+        clean_text = self.clean_transcript(raw_text)
+
+        return {
+            "video_id": video_id,
+            "title": title,
+            "clean_text": clean_text,
+            "link": link,
+        }
+
+
+if __name__ == "__main__":
+    """Quick manual test for fetching a transcript."""
+    video_id = "J8lxHyQmcaI"  # sample video id
+    fetcher = TranscriptFetcher()
+    transcript = fetcher.fetch_transcript(video_id)
+    if transcript:
+        print(json.dumps({"video_id": video_id, "excerpt": transcript[:500]}, indent=2))
+    else:
+        sys.exit(1)
+
+    # from youtube_transcript_api import YouTubeTranscriptApi
+
+    # ytt_api = YouTubeTranscriptApi()
+    # fetched_transcript = ytt_api.fetch(video_id, languages = ["en"])
+    # print(fetched_transcript[0])
