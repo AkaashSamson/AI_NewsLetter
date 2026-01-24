@@ -3,7 +3,8 @@ TranscriptFetcher Module
 Role: Fetch YouTube transcripts and clean them.
 """
 
-from typing import Dict, Any
+from typing import Dict, Any, Optional
+from src.schemas.youtube import TranscriptData
 import re
 import json
 import sys
@@ -165,9 +166,11 @@ class TranscriptFetcher:
 
         return ". ".join(cleaned_sentences)
 
+
+
     def fetch_and_clean(
         self, video_id: str, title: str, link: str = None, languages: list = None
-    ) -> Dict[str, Any] | None:
+    ) -> Optional[TranscriptData]:
         """
         Fetch and clean transcript in one call.
 
@@ -178,7 +181,7 @@ class TranscriptFetcher:
             languages: Language preferences
 
         Returns:
-            Dict with video_id, title, clean_text, link or None
+            TranscriptData object or None
         """
         logger.info(f"  Fetching transcript for video ID: {video_id}")
         raw_text = self.fetch_transcript(video_id, languages)
@@ -192,12 +195,12 @@ class TranscriptFetcher:
         logger.info(f"  ✓ Cleaned transcript: {len(clean_text)} characters")
         logger.debug(f"  Transcript preview: {clean_text[:200]}...")
 
-        return {
-            "video_id": video_id,
-            "title": title,
-            "clean_text": clean_text,
-            "link": link,
-        }
+        return TranscriptData(
+            video_id=video_id,
+            title=title,
+            clean_text=clean_text,
+            link=link,
+        )
 
 
 if __name__ == "__main__":

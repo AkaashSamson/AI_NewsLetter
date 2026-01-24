@@ -6,6 +6,7 @@ Uses RSS feeds - no API key required.
 
 from datetime import datetime, timedelta, timezone
 from typing import List, Dict, Any
+from src.schemas.youtube import VideoMetadata
 import json
 import logging
 import requests
@@ -28,9 +29,11 @@ class YouTubeVideoFinder:
             "https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
         )
 
+
+
     def find_new_videos(
         self, channel_id: str, hours: int = 24, last_checked: str = None
-    ) -> List[Dict[str, Any]]:
+    ) -> List[VideoMetadata]:
         """
         Find new videos from a channel published in the last N hours.
 
@@ -40,12 +43,7 @@ class YouTubeVideoFinder:
             last_checked: ISO format timestamp to filter from (overrides hours)
 
         Returns:
-            List of video dicts with fields:
-            - video_id: YouTube video ID
-            - title: Video title
-            - published_at: ISO format timestamp
-            - channel: Channel name
-            - link: Full YouTube URL
+            List of VideoMetadata objects
         """
         # Determine cutoff time
         if last_checked:
@@ -118,15 +116,15 @@ class YouTubeVideoFinder:
                         if "watch?v=" in link:
                             video_id = link.split("watch?v=")[1].split("&")[0]
 
-                    video_data = {
-                        "video_id": video_id,
-                        "title": entry.get("title", "Untitled"),
-                        "published_at": published_str,
-                        "channel": channel_name,
-                        "link": entry.get(
+                    video_data = VideoMetadata(
+                        video_id=video_id,
+                        title=entry.get("title", "Untitled"),
+                        published_at=published_str,
+                        channel=channel_name,
+                        link=entry.get(
                             "link", f"https://www.youtube.com/watch?v={video_id}"
                         ),
-                    }
+                    )
                     videos.append(video_data)
                     logger.info(f"    Video ID: {video_id}")
 
@@ -149,4 +147,5 @@ if __name__ == "__main__":
     channel_id = "UCbRP3c757lWg9M-U7TyEkXA"  # Sample channel
     finder = YouTubeVideoFinder()
     videos = finder.find_new_videos(channel_id, hours=24)
-    print(json.dumps(videos, indent=2))
+    # Convert Pydantic models to dicts for printing
+    print(json.dumps([v.model_dump() for v in videos], indent=2))

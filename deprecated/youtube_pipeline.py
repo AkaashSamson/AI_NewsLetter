@@ -1,12 +1,13 @@
 import yaml
 import logging
 from typing import Dict, Any, List
+from datetime import datetime
 from src.models.source_tracker import SourceTracker
 from src.models.youtube_finder import YouTubeVideoFinder
 from src.models.transcript_fetcher import TranscriptFetcher
 from src.models.yt_channel_resolver import YouTubeChannelResolver
 from src.models.llm_writer import LLMWriter
-from src.utils.json_builder import JSONBuilder
+from src.schemas.youtube import NewsletterItem, PipelineResult
 
 logger = logging.getLogger(__name__)
 
@@ -22,7 +23,7 @@ class YouTubePipeline:
         self.transcript_fetcher = TranscriptFetcher()
         self.llm_writer = LLMWriter(config_path=config_path)
 
-    def process_single_channel(self, source: Dict[str, Any]) -> List[Dict[str, Any]]:
+    def process_single_channel(self, source: Dict[str, Any]) -> List[NewsletterItem]:
         """Handles the logic for a single source entry."""
         items = []
         channel_url = source.get("url")
@@ -37,6 +38,7 @@ class YouTubePipeline:
             lookback_hours = self.config.get("pipeline", {}).get(
                 "video_lookback_hours", 24
             )
+            # returns List[VideoMetadata]
             videos = self.video_finder.find_new_videos(channel_id, hours=lookback_hours)
 
             # Limit number of videos to process
@@ -47,26 +49,28 @@ class YouTubePipeline:
                 videos = videos[:max_videos]
 
             for video in videos:
-                logger.info(f"Processing video: {video['title']}")
+                logger.info(f"Processing video: {video.title}")
+                # returns TranscriptData | None
                 transcript = self.transcript_fetcher.fetch_and_clean(
-                    video_id=video["video_id"], title=video["title"]
+                    video_id=video.video_id, title=video.title
                 )
                 if transcript:
                     logger.info(f"Transcript fetched, generating summary...")
+                    # returns VideoSummary
                     res = self.llm_writer.process_content(
-                        video["title"], transcript["clean_text"]
+                        video.title, transcript.clean_text
                     )
-                    items.append(
-                        JSONBuilder.build_item(
-                            item_type="youtube",
-                            title=res["title"],
-                            summary=res["summary"],
-                            link=video["link"],
-                        )
+                    
+                    item = NewsletterItem(
+                        type="youtube",
+                        title=res.title,
+                        summary=res.summary,
+                        link=video.link
                     )
-                    logger.info(f"Summary generated for: {video['title']}")
+                    items.append(item)
+                    logger.info(f"Summary generated for: {video.title}")
                 else:
-                    logger.warning(f"No transcript available for: {video['title']}")
+                    logger.warning(f"No transcript available for: {video.title}")
 
             logger.info(f"Processed {len(items)} items from channel")
             return items
@@ -74,13 +78,13 @@ class YouTubePipeline:
             logger.error(f"Error processing channel {channel_url}: {e}", exc_info=True)
             return []
 
-    def run(self) -> Dict[str, Any]:
+    def run(self) -> PipelineResult:
         """Main execution loop for all sources."""
         logger.info("\n" + "=" * 80)
         logger.info("YOUTUBE PIPELINE STARTED")
         logger.info("=" * 80)
 
-        all_items = []
+        all_items: List[NewsletterItem] = []
         sources = self.source_tracker.get_sources()
         logger.info(f"\nTotal sources to process: {len(sources)}")
 
@@ -94,11 +98,18 @@ class YouTubePipeline:
         logger.info("\n" + "=" * 80)
         logger.info("PIPELINE COMPLETE")
         logger.info(f"Total items generated: {len(all_items)}")
+        
         if all_items:
             logger.info("\nGenerated items:")
             for idx, item in enumerate(all_items, 1):
-                logger.info(f"  {idx}. {item['title']}")
+                logger.info(f"  {idx}. {item.title}")
         logger.info("=" * 80 + "\n")
+        
+        return PipelineResult(
+            date=datetime.now().strftime("%Y-%m-%d"),
+            count=len(all_items),
+            items=all_items
+        )
 
 
 if __name__ == "__main__":
@@ -123,20 +134,21 @@ if __name__ == "__main__":
     result = pipeline.run()
 
     # Display results
-    print(f"\nDaily Digest Generated: {result['date']}")
-    print(f"Total Items: {len(result['items'])}")
+    print(f"\nDaily Digest Generated: {result.date}")
+    print(f"Total Items: {result.count}")
     print("=" * 60)
 
-    for idx, item in enumerate(result["items"], 1):
-        print(f"\n[{idx}] {item['title']}")
-        print(f"Type: {item['type']}")
-        print(f"Link: {item['link']}")
-        print(f"Summary:\n{item['summary']}")
+    for idx, item in enumerate(result.items, 1):
+        print(f"\n[{idx}] {item.title}")
+        print(f"Type: {item.type}")
+        print(f"Link: {item.link}")
+        print(f"Summary:\n{item.summary}")
         print("-" * 60)
 
     # Save to file
     output_file = "daily_digest.json"
     with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(result, f, indent=2, ensure_ascii=False)
+        # Convert Pydantic model to JSON string
+        f.write(result.model_dump_json(indent=2))
 
     print(f"\n✓ Results saved to {output_file}")

@@ -406,3 +406,65 @@ If you are sure that the described cause is not responsible for this error and t
 2026-01-22 16:56:17 | INFO     | __main__:run:83 | Total items generated: 0
 2026-01-22 16:56:17 | INFO     | __main__:run:88 | ================================================================================
 
+2026-01-22 17:47:23 | INFO     | root:setup_logging:75 | ================================================================================
+2026-01-22 17:47:23 | INFO     | root:setup_logging:76 | Logging initialized | Level: INFO | File: logs\pipeline_20260122.log
+2026-01-22 17:47:23 | INFO     | root:setup_logging:77 | ================================================================================
+2026-01-22 17:47:23 | INFO     | root:main:17 | ================================================================================
+2026-01-22 17:47:23 | INFO     | root:main:18 | AI NEWSLETTER - YOUTUBE PIPELINE
+2026-01-22 17:47:23 | INFO     | root:main:19 | ================================================================================
+2026-01-22 17:47:23 | INFO     | root:main:23 | 
+Initializing pipeline...
+2026-01-22 17:47:23 | INFO     | src.models.source_tracker:load_sources:31 | Loaded 1 source(s) from youtube_sources.csv
+2026-01-22 17:47:24 | INFO     | root:main:27 | Starting pipeline execution...
+
+2026-01-22 17:47:24 | INFO     | src.pipelines.youtube_pipeline:run:88 | 
+================================================================================
+2026-01-22 17:47:24 | INFO     | src.pipelines.youtube_pipeline:run:89 | YOUTUBE PIPELINE STARTED
+2026-01-22 17:47:24 | INFO     | src.pipelines.youtube_pipeline:run:90 | ================================================================================
+2026-01-22 17:47:25 | INFO     | src.pipelines.youtube_pipeline:run:94 | 
+Total sources to process: 1
+2026-01-22 17:47:25 | INFO     | src.pipelines.youtube_pipeline:run:97 | 
+################################################################################
+2026-01-22 17:47:25 | INFO     | src.pipelines.youtube_pipeline:run:98 | SOURCE 1/1: LinusTechTips
+2026-01-22 17:47:25 | INFO     | src.pipelines.youtube_pipeline:run:99 | ################################################################################
+2026-01-22 17:47:25 | INFO     | src.models.yt_channel_resolver:get_channel_id:20 | Resolving channel ID for: https://www.youtube.com/@LinusTechTips
+2026-01-22 17:47:27 | INFO     | src.models.youtube_finder:find_new_videos:56 | Using relative time: 24 hours ago = 2026-01-21 12:17:27.321563+00:00
+2026-01-22 17:47:27 | INFO     | src.models.youtube_finder:find_new_videos:59 | Fetching RSS feed from: https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw
+2026-01-22 17:47:28 | INFO     | src.models.youtube_finder:find_new_videos:76 | Channel: Linus Tech Tips
+2026-01-22 17:47:28 | INFO     | src.models.youtube_finder:find_new_videos:77 | Total entries in RSS feed: 15
+2026-01-22 17:47:28 | INFO     | src.models.youtube_finder:find_new_videos:104 |   ✓ New video found: 'I Bought the Tech House and it Has a PROBLEM…'
+2026-01-22 17:47:28 | INFO     | src.models.youtube_finder:find_new_videos:105 |     Published: 2026-01-21 18:05:10+00:00
+2026-01-22 17:47:28 | INFO     | src.models.youtube_finder:find_new_videos:131 |     Video ID: sPU6wVz2iE8
+2026-01-22 17:47:28 | INFO     | src.models.youtube_finder:find_new_videos:133 | \n────────────────────────────────────────────────────────────
+2026-01-22 17:47:28 | INFO     | src.models.youtube_finder:find_new_videos:134 | SUMMARY: Found 1 new video(s) after cutoff time
+2026-01-22 17:47:28 | INFO     | src.models.youtube_finder:find_new_videos:135 | ────────────────────────────────────────────────────────────
+2026-01-22 17:47:28 | INFO     | src.pipelines.youtube_pipeline:process_single_channel:59 | Processing video: I Bought the Tech House and it Has a PROBLEM…
+2026-01-22 17:47:28 | INFO     | src.models.transcript_fetcher:fetch_and_clean:183 |   Fetching transcript for video ID: sPU6wVz2iE8
+2026-01-22 17:47:28 | INFO     | src.models.transcript_fetcher:fetch_transcript:95 | Fetching transcript for video: sPU6wVz2iE8 (languages: ['en'])
+2026-01-22 17:47:33 | ERROR    | src.models.transcript_fetcher:fetch_transcript:110 | Could not fetch transcript for video sPU6wVz2iE8: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=sPU6wVz2iE8! This is most likely caused by:
+
+YouTube is blocking requests from your IP. This usually is due to one of the following reasons:
+- You have done too many requests and your IP has been blocked by YouTube
+- You are doing requests from an IP belonging to a cloud provider (like AWS, Google Cloud Platform, Azure, etc.). Unfortunately, most IPs from cloud providers are blocked by YouTube.
+
+Ways to work around this are explained in the "Working around IP bans" section of the README (https://github.com/jdepoix/youtube-transcript-api?tab=readme-ov-file#working-around-ip-bans-requestblocked-or-ipblocked-exception).
+
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+2026-01-22 17:47:33 | WARNING  | src.models.transcript_fetcher:fetch_and_clean:187 |   ✗ No transcript available
+2026-01-22 17:47:33 | WARNING  | src.pipelines.youtube_pipeline:process_single_channel:78 | No transcript available for: I Bought the Tech House and it Has a PROBLEM…
+2026-01-22 17:47:33 | INFO     | src.pipelines.youtube_pipeline:process_single_channel:80 | Processed 0 items from channel
+2026-01-22 17:47:33 | INFO     | src.pipelines.youtube_pipeline:run:103 | 
+================================================================================
+2026-01-22 17:47:33 | INFO     | src.pipelines.youtube_pipeline:run:104 | PIPELINE COMPLETE
+2026-01-22 17:47:33 | INFO     | src.pipelines.youtube_pipeline:run:105 | Total items generated: 0
+2026-01-22 17:47:33 | INFO     | src.pipelines.youtube_pipeline:run:110 | ================================================================================
+
+2026-01-22 17:47:33 | ERROR    | root:main:61 | 
+❌ Pipeline failed: 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\Akaash\Desktop\D_Drive\Project\AI_NewsLetter\main.py", line 34, in main
+    print(f"\nDate: {result['date']}")
+                     ~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
