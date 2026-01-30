@@ -1,9 +1,7 @@
 from sqlalchemy import Column, String, DateTime, Text, ForeignKey
-from sqlalchemy.orm import declarative_base
 from datetime import datetime, timezone
 import uuid
-
-Base = declarative_base()
+from .core import Base
 
 class TimeStampedModel(Base):
     """Abstract base model with timestamp."""

@@ -5,9 +5,9 @@ from datetime import datetime
 from typing import List, Optional
 from sqlalchemy.orm import Session
 from src.database import crud, models
-from src.models.youtube_finder import YouTubeVideoFinder
-from src.models.transcript_fetcher import TranscriptFetcher
-from src.models.llm_writer import LLMWriter
+from src.services.youtube_finder import YouTubeVideoFinder
+from src.services.transcript_fetcher import TranscriptFetcher
+from src.services.llm_writer import LLMWriter
 from src.config.settings import settings
 from src.schemas.youtube import VideoMetadata
 

@@ -3,23 +3,31 @@ AI Newsletter - Src Package
 Main application package
 """
 
-from .models import (
-    SourceTracker,
+from .services import (
     YouTubeVideoFinder,
     TranscriptFetcher,
     YouTubeChannelResolver,
     LLMWriter,
 )
-from .utils import TextCleaner, JSONBuilder
-from .pipelines import YouTubePipeline
+from .utils import (
+    TextCleaner,
+    setup_logging,
+    get_logger,
+)
+# from .pipelines import YouTubePipeline
 
 __all__ = [
-    "SourceTracker",
+    # Services
     "YouTubeVideoFinder",
     "TranscriptFetcher",
     "YouTubeChannelResolver",
     "LLMWriter",
+    
+    # Utils
     "TextCleaner",
-    "JSONBuilder",
-    "YouTubePipeline",
+    "setup_logging",
+    "get_logger",
+    
+    # Pipelines
+    # "YouTubePipeline",
 ]

@@ -17,6 +17,10 @@ class Settings(BaseSettings):
     GROQ_API_KEY: Optional[str] = None
     GEMINI_API_KEY: Optional[str] = None
     
+    # Ollama (Local LLM)
+    OLLAMA_BASE_URL: str = "http://localhost:11434/v1"
+    OLLAMA_MODEL: str = "gemma3:4b"
+    
     # Rate Limiting
     MAX_VIDEOS_PER_RUN: int = 5
     

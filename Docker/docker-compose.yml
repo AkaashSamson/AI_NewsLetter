@@ -1,16 +1,40 @@
 services:
-  postgres:
-    image: postgres:15-alpine
-    container_name: ai_newsletter_db
+  db:
+    image: postgres:17
+    container_name: newsletter_db
     environment:
-      POSTGRES_USER: ${DB_USER:-postgres}
-      POSTGRES_PASSWORD: ${DB_PASSWORD:-password}
-      POSTGRES_DB: ${DB_NAME:-ai_newsletter}
+      POSTGRES_USER: ${DB_USER:-admin}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-admin123}
+      POSTGRES_DB: newsletter_db
     ports:
       - "5432:5432"
     volumes:
-      - pgdata:/var/lib/postgresql/data
-    restart: always
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d newsletter_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - newsletter_net
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: newsletter_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@local.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "5050:80"
+    networks:
+      - newsletter_net
+    depends_on:
+      db:
+        condition: service_healthy
+
+networks:
+  newsletter_net:
+    driver: bridge
 
 volumes:
-  pgdata:
+  postgres_data:

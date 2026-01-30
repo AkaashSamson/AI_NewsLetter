@@ -20,3 +20,5 @@ wheels/
 
 # Output files
 daily_digest*.json
+.agent/
+tasks.md

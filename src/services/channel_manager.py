@@ -2,7 +2,7 @@ import logging
 from typing import List, Optional
 from sqlalchemy.orm import Session
 from src.database import crud
-from src.models.yt_channel_resolver import YouTubeChannelResolver
+from src.services.yt_channel_resolver import YouTubeChannelResolver
 
 logger = logging.getLogger(__name__)
 

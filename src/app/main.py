@@ -1,3 +1,12 @@
+import sys
+import os
+from pathlib import Path
+
+# Add project root to path so 'src' module can be found
+# Resolves: c:\DEV\Project\AI_Engineering\AI_NewsLetter\src\app\main.py -> c:\DEV\Project\AI_Engineering\AI_NewsLetter
+root_path = Path(__file__).parent.parent.parent
+sys.path.append(str(root_path))
+
 import streamlit as st
 from src.database.core import get_db, engine, Base
 from src.services.channel_manager import ChannelManager
