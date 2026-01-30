@@ -103,7 +103,11 @@ def main():
                 }
                 for c in channels
             ]
-            st.dataframe(data, use_container_width=True)
+            st.dataframe(
+                data,
+                use_container_width=True,
+                column_config={"URL": st.column_config.LinkColumn("Channel Link")},
+            )
 
 
 if __name__ == "__main__":
